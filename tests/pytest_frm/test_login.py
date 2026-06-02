@@ -38,5 +38,5 @@ def test_login_with_incorrect_password(driver):
         raise
 
 
-#./.venv/bin/python -m pytest pages/pytest_frm/tests/test_login.py --html=report.html
-#
+# Run this file:
+# ./.venv/bin/python -m pytest tests/pytest_frm/test_login.py -v

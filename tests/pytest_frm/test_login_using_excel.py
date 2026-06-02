@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 from pages.login_page import LoginPage
 
 LOGIN_URL = "https://the-internet.herokuapp.com/login"
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 EXCEL_FILE = PROJECT_ROOT / "data_source" / "login_data.xlsx"
 
 VALID_USERNAME = "tomsmith"
@@ -58,7 +58,7 @@ def test_login(driver, username, password, message):
 
 
 # Run without HTML report:
-# ./.venv/bin/python -m pytest pages/pytest_frm/tests/test_login_using_excel.py -v
+# ./.venv/bin/python -m pytest tests/pytest_frm/test_login_using_excel.py -v
 
 # Run with HTML report:
-# ./.venv/bin/python -m pytest pages/pytest_frm/tests/test_login_using_excel.py -v --html=report.html
+# ./.venv/bin/python -m pytest tests/pytest_frm/test_login_using_excel.py -v --html=reports/report.html

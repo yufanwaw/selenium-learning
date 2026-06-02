@@ -23,8 +23,8 @@ def test_login(driver, username, password, expected_message):
 
     assert expected_message in login_page.get_flash_message()
 
-#Run without HTML report:
-#./.venv/bin/python -m pytest pages/pytest_frm/tests/test_login_pytest_prmtrzd.py -v
+# Run without HTML report:
+# ./.venv/bin/python -m pytest tests/pytest_frm/test_login_pytest_prmtrzd.py -v
 
-#Run with HTML report:
-#./.venv/bin/python -m pytest pages/pytest_frm/tests/test_login_pytest_prmtrzd.py -v --html=report.html
+# Run with HTML report:
+# ./.venv/bin/python -m pytest tests/pytest_frm/test_login_pytest_prmtrzd.py -v --html=reports/report.html
