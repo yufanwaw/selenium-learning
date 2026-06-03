@@ -1,11 +1,10 @@
+import os
 import logging
 import sys
 from pathlib import Path
 
 import pytest
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -27,9 +26,14 @@ logger = logging.getLogger(__name__)
 
 @pytest.fixture
 def driver():
-    logger.info("Starting Chrome browser")
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service)
+    selenium_remote_url = os.getenv("SELENIUM_REMOTE_URL", "http://localhost:4444/wd/hub")
+
+    logger.info("Starting Chrome browser on Selenium Grid: %s", selenium_remote_url)
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Remote(
+        command_executor=selenium_remote_url,
+        options=options,
+    )
 
     yield driver
 

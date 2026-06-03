@@ -18,7 +18,7 @@ pipeline {
 
         stage('Run tests') {
             steps {
-                sh './.venv/bin/python -m pytest tests --html=reports/report.html --self-contained-html'
+                sh 'SELENIUM_REMOTE_URL=http://localhost:4444/wd/hub ./.venv/bin/python -m pytest tests --html=reports/report.html --self-contained-html'
             }
         }
     }
